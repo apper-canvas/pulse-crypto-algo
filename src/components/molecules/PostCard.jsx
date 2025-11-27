@@ -116,7 +116,13 @@ const handleCopyLink = async () => {
     setShowShareModal(false);
   };
 
-  const handleNativeShare = async () => {
+const handleNativeShare = async () => {
+    // Check if Web Share API is supported
+    if (!navigator.share) {
+      toast.error('Sharing is not supported on this device');
+      return;
+    }
+
     const postUrl = `${window.location.origin}/posts/${post.Id}`;
     const shareData = {
       title: `Post by ${post.author?.name || 'Unknown'}`,
@@ -129,8 +135,17 @@ const handleCopyLink = async () => {
       setShowShareModal(false);
       toast.success('Post shared successfully!');
     } catch (error) {
-      if (error.name !== 'AbortError') {
-        toast.error('Failed to share post');
+      // Handle different types of errors appropriately
+      if (error.name === 'AbortError') {
+        // User cancelled the share - no error message needed
+        return;
+      } else if (error.name === 'NotAllowedError') {
+        toast.error('Sharing permission denied');
+      } else if (error.name === 'DataError') {
+        toast.error('Invalid share data');
+      } else {
+        // Generic error for other cases
+        toast.error('Unable to share post. Please try again.');
       }
     }
   };
