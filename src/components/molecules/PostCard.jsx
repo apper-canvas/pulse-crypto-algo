@@ -14,6 +14,7 @@ const PostCard = ({ post, currentUser, onLike, onComment }) => {
   const [likeCount, setLikeCount] = useState(post.likeCount || 0);
   const [showComments, setShowComments] = useState(false);
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
+  const [showShareModal, setShowShareModal] = useState(false);
   const [currentPost, setCurrentPost] = useState(post);
   const navigate = useNavigate();
 
@@ -37,10 +38,66 @@ const handleLike = async () => {
     navigate(`/post/${post.Id}`);
   };
 
-  const handlePrivacyClick = () => {
+const handlePrivacyClick = () => {
     setShowPrivacyModal(true);
   };
 
+  const handleShareClick = () => {
+    setShowShareModal(true);
+  };
+
+  const handleCopyLink = async () => {
+    const postUrl = `${window.location.origin}/posts/${post.Id}`;
+    try {
+      await navigator.clipboard.writeText(postUrl);
+      toast.success('Link copied to clipboard!');
+      setShowShareModal(false);
+    } catch (error) {
+      toast.error('Failed to copy link');
+    }
+  };
+
+  const handleSocialShare = (platform) => {
+    const postUrl = `${window.location.origin}/posts/${post.Id}`;
+    const shareText = `Check out this post by ${post.author?.name || 'Unknown'}: ${post.content.substring(0, 100)}...`;
+    
+    let shareUrl = '';
+    switch (platform) {
+      case 'twitter':
+        shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(postUrl)}`;
+        break;
+      case 'facebook':
+        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(postUrl)}`;
+        break;
+      case 'linkedin':
+        shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(postUrl)}`;
+        break;
+      default:
+        return;
+    }
+    
+    window.open(shareUrl, '_blank', 'width=600,height=400');
+    setShowShareModal(false);
+  };
+
+  const handleNativeShare = async () => {
+    const postUrl = `${window.location.origin}/posts/${post.Id}`;
+    const shareData = {
+      title: `Post by ${post.author?.name || 'Unknown'}`,
+      text: post.content.substring(0, 100) + (post.content.length > 100 ? '...' : ''),
+      url: postUrl
+    };
+
+    try {
+      await navigator.share(shareData);
+      setShowShareModal(false);
+      toast.success('Post shared successfully!');
+    } catch (error) {
+      if (error.name !== 'AbortError') {
+        toast.error('Failed to share post');
+      }
+    }
+  };
   const handlePrivacyUpdate = async (newPrivacy) => {
     try {
       const updatedPost = await postsService.update(currentPost.Id, { privacy: newPrivacy });
@@ -189,14 +246,117 @@ const handleLike = async () => {
             <span className="text-sm font-medium">{post.commentCount || 0}</span>
           </button>
 
-          <button className="flex items-center space-x-2 text-gray-600 hover:text-accent transition-colors group">
-            <ApperIcon 
-              name="Share" 
-              size={20}
-              className="group-hover:text-accent transition-colors"
-            />
-            <span className="text-sm font-medium">Share</span>
-          </button>
+<div className="relative">
+            <button 
+              onClick={handleShareClick}
+              className="flex items-center space-x-2 text-gray-600 hover:text-accent transition-colors group"
+            >
+              <ApperIcon 
+                name="Share" 
+                size={20}
+                className="group-hover:text-accent transition-colors"
+              />
+              <span className="text-sm font-medium">Share</span>
+            </button>
+
+            {/* Share Modal */}
+            {showShareModal && (
+              <>
+                {/* Backdrop */}
+                <div 
+                  className="fixed inset-0 bg-black bg-opacity-50 z-40"
+                  onClick={() => setShowShareModal(false)}
+                />
+                
+                {/* Modal */}
+                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-white rounded-lg shadow-lg border border-gray-200 z-50 w-80 max-w-sm">
+                  <div className="p-4">
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="text-lg font-semibold text-gray-900">Share Post</h3>
+                      <button
+                        onClick={() => setShowShareModal(false)}
+                        className="text-gray-400 hover:text-gray-600 transition-colors"
+                      >
+                        <ApperIcon name="X" size={20} />
+                      </button>
+                    </div>
+                    
+                    <div className="space-y-3">
+                      {/* Copy Link */}
+                      <button
+                        onClick={handleCopyLink}
+                        className="w-full flex items-center space-x-3 p-3 text-left hover:bg-gray-50 rounded-lg transition-colors"
+                      >
+                        <div className="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                          <ApperIcon name="Copy" size={16} className="text-blue-600" />
+                        </div>
+                        <div>
+                          <p className="font-medium text-gray-900">Copy Link</p>
+                          <p className="text-sm text-gray-500">Copy post link to clipboard</p>
+                        </div>
+                      </button>
+
+                      {/* Native Share (Mobile) */}
+                      {navigator.share && (
+                        <button
+                          onClick={handleNativeShare}
+                          className="w-full flex items-center space-x-3 p-3 text-left hover:bg-gray-50 rounded-lg transition-colors"
+                        >
+                          <div className="flex-shrink-0 w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                            <ApperIcon name="Share" size={16} className="text-green-600" />
+                          </div>
+                          <div>
+                            <p className="font-medium text-gray-900">Share</p>
+                            <p className="text-sm text-gray-500">Share via device options</p>
+                          </div>
+                        </button>
+                      )}
+
+                      {/* Social Media Divider */}
+                      <div className="border-t border-gray-100 pt-3">
+                        <p className="text-xs font-medium text-gray-500 mb-3 uppercase tracking-wide">Social Media</p>
+                        
+                        <div className="grid grid-cols-3 gap-2">
+                          {/* Twitter */}
+                          <button
+                            onClick={() => handleSocialShare('twitter')}
+                            className="flex flex-col items-center space-y-2 p-3 hover:bg-gray-50 rounded-lg transition-colors"
+                          >
+                            <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                              <ApperIcon name="Twitter" size={14} className="text-white" />
+                            </div>
+                            <span className="text-xs font-medium text-gray-700">Twitter</span>
+                          </button>
+
+                          {/* Facebook */}
+                          <button
+                            onClick={() => handleSocialShare('facebook')}
+                            className="flex flex-col items-center space-y-2 p-3 hover:bg-gray-50 rounded-lg transition-colors"
+                          >
+                            <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                              <ApperIcon name="Facebook" size={14} className="text-white" />
+                            </div>
+                            <span className="text-xs font-medium text-gray-700">Facebook</span>
+                          </button>
+
+                          {/* LinkedIn */}
+                          <button
+                            onClick={() => handleSocialShare('linkedin')}
+                            className="flex flex-col items-center space-y-2 p-3 hover:bg-gray-50 rounded-lg transition-colors"
+                          >
+                            <div className="w-8 h-8 bg-blue-700 rounded-full flex items-center justify-center">
+                              <ApperIcon name="Linkedin" size={14} className="text-white" />
+                            </div>
+                            <span className="text-xs font-medium text-gray-700">LinkedIn</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
         </div>
       </div>
 
