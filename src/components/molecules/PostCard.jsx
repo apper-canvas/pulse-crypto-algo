@@ -46,57 +46,50 @@ const handlePrivacyClick = () => {
     setShowShareModal(true);
   };
 
-  const handleCopyLink = async () => {
-const postUrl = `${window.location.origin}/posts/${post.Id}`;
-
-    const handleCopyLink = async () => {
-      try {
-        // Modern Clipboard API (preferred method)
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          await navigator.clipboard.writeText(postUrl);
-          toast.success('Link copied to clipboard!');
-        } 
-        // Fallback for older browsers or when clipboard API is blocked
-        else if (document.execCommand) {
-          const textArea = document.createElement('textarea');
-          textArea.value = postUrl;
-          textArea.style.position = 'fixed';
-          textArea.style.left = '-999999px';
-          textArea.style.top = '-999999px';
-          document.body.appendChild(textArea);
-          textArea.focus();
-          textArea.select();
-          
-          const successful = document.execCommand('copy');
-          document.body.removeChild(textArea);
-          
-          if (successful) {
-            toast.success('Link copied to clipboard!');
-          } else {
-            toast.error('Failed to copy link. Please try selecting and copying the URL manually.');
-          }
-        } 
-        // No clipboard support available
-        else {
-          toast.error('Clipboard not supported. Please copy the link manually: ' + postUrl);
-        }
-      } catch (error) {
-        // Handle clipboard API errors (permissions, security restrictions, etc.)
-        if (error.name === 'NotAllowedError') {
-          toast.error('Clipboard access denied. Please allow clipboard permissions and try again.');
-        } else if (error.name === 'NotFoundError') {
-          toast.error('Clipboard not available. Please copy the link manually.');
-        } else {
-          toast.error('Failed to copy link. Please try again or copy manually.');
-        }
-      }
-    };
+const handleCopyLink = async () => {
+    const postUrl = `${window.location.origin}/posts/${post.Id}`;
+    
     try {
-      await navigator.clipboard.writeText(postUrl);
-      toast.success('Link copied to clipboard!');
-      setShowShareModal(false);
+      // Modern Clipboard API (preferred method)
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(postUrl);
+        toast.success('Link copied to clipboard!');
+        setShowShareModal(false);
+      } 
+      // Fallback for older browsers or when clipboard API is blocked
+      else if (document.execCommand) {
+        const textArea = document.createElement('textarea');
+        textArea.value = postUrl;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        
+        const successful = document.execCommand('copy');
+        document.body.removeChild(textArea);
+        
+        if (successful) {
+          toast.success('Link copied to clipboard!');
+          setShowShareModal(false);
+        } else {
+          toast.error('Failed to copy link. Please try selecting and copying the URL manually.');
+        }
+      } 
+      // No clipboard support available
+      else {
+        toast.error('Clipboard not supported. Please copy the link manually: ' + postUrl);
+      }
     } catch (error) {
-      toast.error('Failed to copy link');
+      // Handle clipboard API errors (permissions, security restrictions, etc.)
+      if (error.name === 'NotAllowedError') {
+        toast.error('Clipboard access denied. Please allow clipboard permissions and try again.');
+      } else if (error.name === 'NotFoundError') {
+        toast.error('Clipboard not available. Please copy the link manually.');
+      } else {
+        toast.error('Failed to copy link. Please try again or copy manually.');
+      }
     }
   };
 
