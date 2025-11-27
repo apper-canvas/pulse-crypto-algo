@@ -5,16 +5,18 @@ import PostCard from "@/components/molecules/PostCard";
 import Loading from "@/components/ui/Loading";
 import ErrorView from "@/components/ui/ErrorView";
 import ApperIcon from "@/components/ApperIcon";
+import CommentForm from "@/components/molecules/CommentForm";
+import CommentList from "@/components/molecules/CommentList";
 import { postsService } from "@/services/api/postsService";
 import { usersService } from "@/services/api/usersService";
-
 const PostDetail = () => {
   const { postId } = useParams();
   const navigate = useNavigate();
-  const [post, setPost] = useState(null);
+const [post, setPost] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [commentRefresh, setCommentRefresh] = useState(0);
 
   useEffect(() => {
     if (postId) {
@@ -23,7 +25,7 @@ const PostDetail = () => {
   }, [postId]);
 
   const loadPost = async () => {
-    try {
+try {
       setLoading(true);
       setError(null);
       
@@ -41,8 +43,24 @@ const PostDetail = () => {
     }
   };
 
+  const handleCommentAdded = async (newComment) => {
+    try {
+      // Update post comment count
+      await postsService.addComment(postId);
+      
+      // Refresh post data to get updated comment count
+      const updatedPost = await postsService.getById(parseInt(postId));
+      setPost(updatedPost);
+      
+      // Trigger comment list refresh
+      setCommentRefresh(prev => prev + 1);
+    } catch (err) {
+      console.error('Failed to update comment count:', err);
+    }
+  };
+
   const handleLikePost = async (postId, isLiked) => {
-    console.log(`Post ${postId} ${isLiked ? "liked" : "unliked"}`);
+console.log(`Post ${postId} ${isLiked ? "liked" : "unliked"}`);
   };
 
   const handleBack = () => {
@@ -74,12 +92,26 @@ const PostDetail = () => {
       )}
 
       {/* Comments Section */}
-      <div className="mt-6 bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-        <h3 className="text-lg font-display font-semibold text-gray-900 mb-4">
-          Comments
-        </h3>
-        <div className="text-center py-8 text-gray-500 font-body">
-          Comments feature coming soon...
+<div className="mt-6 bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+        <div className="px-6 py-4 border-b border-gray-100">
+          <h3 className="text-lg font-display font-semibold text-gray-900">
+            Comments ({post.commentCount || 0})
+          </h3>
+        </div>
+        
+        {currentUser && (
+          <CommentForm
+            postId={postId}
+            currentUser={currentUser}
+            onCommentAdded={handleCommentAdded}
+          />
+        )}
+        
+        <div className="p-6">
+          <CommentList
+            postId={postId}
+            refreshTrigger={commentRefresh}
+          />
         </div>
       </div>
     </div>

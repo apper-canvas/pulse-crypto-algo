@@ -127,8 +127,8 @@ const PostCard = ({ post, currentUser, onLike, onComment }) => {
             <span className="text-sm font-medium">{likeCount}</span>
           </motion.button>
 
-          <button
-            onClick={() => setShowComments(!showComments)}
+<button
+            onClick={() => onComment ? onComment(post.Id) : setShowComments(!showComments)}
             className="flex items-center space-x-2 text-gray-600 hover:text-secondary transition-colors group"
           >
             <ApperIcon 
@@ -151,11 +151,11 @@ const PostCard = ({ post, currentUser, onLike, onComment }) => {
       </div>
 
       {/* Comments Section */}
-      {showComments && (
+{showComments && !onComment && (
         <div className="border-t border-gray-50 p-6 bg-gray-50">
           <div className="space-y-4">
             <div className="text-sm text-gray-500 font-body">
-              Comments coming soon...
+              Click on the post to view and add comments.
             </div>
           </div>
         </div>

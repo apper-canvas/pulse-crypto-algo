@@ -69,7 +69,7 @@ class PostsService {
       Id: Math.max(...this.posts.map(p => p.Id)) + 1,
       ...postData,
       likeCount: 0,
-      commentCount: 0,
+commentCount: 0,
       createdAt: new Date().toISOString(),
       editedAt: null
     };
@@ -115,6 +115,25 @@ class PostsService {
     }
     this.posts.splice(index, 1);
     return true;
+}
+
+  async addComment(postId) {
+    await this.delay();
+    
+    const post = this.posts.find(p => p.Id === parseInt(postId));
+    if (!post) {
+      throw new Error('Post not found');
+    }
+    
+    post.commentCount = (post.commentCount || 0) + 1;
+    return post.commentCount;
+  }
+
+  async getCommentCount(postId) {
+    await this.delay();
+    
+    const post = this.posts.find(p => p.Id === parseInt(postId));
+    return post ? (post.commentCount || 0) : 0;
   }
 
   async like(postId, userId) {

@@ -1,0 +1,137 @@
+[
+  {
+    "Id": 1,
+    "postId": 1,
+    "authorId": 2,
+    "content": "This is such an inspiring post! Thanks for sharing your thoughts.",
+    "createdAt": "2024-01-15T10:30:00.000Z",
+    "editedAt": null,
+    "likeCount": 5
+  },
+  {
+    "Id": 2,
+    "postId": 1,
+    "authorId": 3,
+    "content": "I completely agree! This really resonates with my experience too.",
+    "createdAt": "2024-01-15T11:45:00.000Z",
+    "editedAt": null,
+    "likeCount": 2
+  },
+  {
+    "Id": 3,
+    "postId": 1,
+    "authorId": 4,
+    "content": "Great perspective! Would love to hear more about this topic.",
+    "createdAt": "2024-01-15T14:20:00.000Z",
+    "editedAt": null,
+    "likeCount": 1
+  },
+  {
+    "Id": 4,
+    "postId": 2,
+    "authorId": 1,
+    "content": "Beautiful capture! The lighting is perfect.",
+    "createdAt": "2024-01-16T09:15:00.000Z",
+    "editedAt": null,
+    "likeCount": 8
+  },
+  {
+    "Id": 5,
+    "postId": 2,
+    "authorId": 3,
+    "content": "Wow, where was this taken? Looks amazing!",
+    "createdAt": "2024-01-16T12:30:00.000Z",
+    "editedAt": null,
+    "likeCount": 3
+  },
+  {
+    "Id": 6,
+    "postId": 3,
+    "authorId": 2,
+    "content": "This made my day! Thank you for the positivity 😊",
+    "createdAt": "2024-01-17T08:45:00.000Z",
+    "editedAt": null,
+    "likeCount": 12
+  },
+  {
+    "Id": 7,
+    "postId": 3,
+    "authorId": 4,
+    "content": "Needed to see this today. Thanks for the motivation!",
+    "createdAt": "2024-01-17T15:20:00.000Z",
+    "editedAt": null,
+    "likeCount": 6
+  },
+  {
+    "Id": 8,
+    "postId": 4,
+    "authorId": 1,
+    "content": "Fascinating insights! Thanks for sharing your research.",
+    "createdAt": "2024-01-18T11:10:00.000Z",
+    "editedAt": null,
+    "likeCount": 4
+  },
+  {
+    "Id": 9,
+    "postId": 4,
+    "authorId": 3,
+    "content": "This changes everything I thought I knew about the topic.",
+    "createdAt": "2024-01-18T13:45:00.000Z",
+    "editedAt": null,
+    "likeCount": 7
+  },
+  {
+    "Id": 10,
+    "postId": 5,
+    "authorId": 2,
+    "content": "Love this! Can't wait to try it myself.",
+    "createdAt": "2024-01-19T10:25:00.000Z",
+    "editedAt": null,
+    "likeCount": 9
+  },
+  {
+    "Id": 11,
+    "postId": 5,
+    "authorId": 4,
+    "content": "Step-by-step instructions would be helpful!",
+    "createdAt": "2024-01-19T14:15:00.000Z",
+    "editedAt": null,
+    "likeCount": 3
+  },
+  {
+    "Id": 12,
+    "postId": 6,
+    "authorId": 1,
+    "content": "This is exactly what I needed to hear today. Thank you!",
+    "createdAt": "2024-01-20T09:30:00.000Z",
+    "editedAt": null,
+    "likeCount": 15
+  },
+  {
+    "Id": 13,
+    "postId": 6,
+    "authorId": 3,
+    "content": "Your posts always bring such clarity. Keep them coming!",
+    "createdAt": "2024-01-20T16:45:00.000Z",
+    "editedAt": null,
+    "likeCount": 8
+  },
+  {
+    "Id": 14,
+    "postId": 7,
+    "authorId": 2,
+    "content": "The creativity here is off the charts! 🔥",
+    "createdAt": "2024-01-21T12:20:00.000Z",
+    "editedAt": null,
+    "likeCount": 11
+  },
+  {
+    "Id": 15,
+    "postId": 8,
+    "authorId": 4,
+    "content": "Such an important message. Everyone should read this.",
+    "createdAt": "2024-01-22T08:55:00.000Z",
+    "editedAt": null,
+    "likeCount": 6
+  }
+]
