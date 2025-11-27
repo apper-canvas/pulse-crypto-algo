@@ -79,6 +79,10 @@ class NotificationsService {
     this.notifications.splice(index, 1);
     return true;
   }
+async getUnreadCount() {
+    await new Promise(resolve => setTimeout(resolve, this.delay));
+    return this.notifications.filter(n => !n.isRead).length;
+  }
 }
 
 export const notificationsService = new NotificationsService();
