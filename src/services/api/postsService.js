@@ -85,11 +85,16 @@ commentCount: 0,
     }
   }
 
-  async update(id, postData) {
+async update(id, postData) {
     await new Promise(resolve => setTimeout(resolve, this.delay));
     const index = this.posts.findIndex(p => p.Id === id);
     if (index === -1) {
       throw new Error("Post not found");
+    }
+    
+    // Validate privacy field if provided
+    if (postData.privacy && !['public', 'friends', 'private'].includes(postData.privacy)) {
+      throw new Error("Invalid privacy setting");
     }
     
     this.posts[index] = { 

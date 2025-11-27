@@ -19,7 +19,7 @@
     "mediaType": "image",
     "likeCount": 89,
     "commentCount": 24,
-    "privacy": "public",
+    "privacy": "friends",
     "createdAt": "2024-01-15T08:45:00Z",
     "editedAt": null
   },
@@ -43,7 +43,7 @@
     "mediaType": "image",
     "likeCount": 203,
     "commentCount": 18,
-    "privacy": "public",
+    "privacy": "private",
     "createdAt": "2024-01-14T16:15:00Z",
     "editedAt": null
   },
@@ -55,7 +55,7 @@
     "mediaType": null,
     "likeCount": 73,
     "commentCount": 19,
-    "privacy": "public",
+    "privacy": "friends",
     "createdAt": "2024-01-14T12:30:00Z",
     "editedAt": null
   },
@@ -79,7 +79,7 @@
     "mediaType": "image",
     "likeCount": 91,
     "commentCount": 15,
-    "privacy": "public",
+    "privacy": "private",
     "createdAt": "2024-01-13T09:20:00Z",
     "editedAt": null
   },
@@ -91,7 +91,7 @@
     "mediaType": "image",
     "likeCount": 178,
     "commentCount": 33,
-    "privacy": "public",
+    "privacy": "friends",
     "createdAt": "2024-01-12T11:30:00Z",
     "editedAt": null
   },
@@ -115,7 +115,7 @@
     "mediaType": "image",
     "likeCount": 95,
     "commentCount": 16,
-    "privacy": "public",
+    "privacy": "private",
     "createdAt": "2024-01-11T17:45:00Z",
     "editedAt": null
   }
