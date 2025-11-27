@@ -183,9 +183,8 @@ const [conversations, setConversations] = useState([]);
                     </motion.button>
                   ))}
                 </div>
-              );
+);
             })()}
-            )}
           </div>
         </div>
 
