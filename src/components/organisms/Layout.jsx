@@ -445,9 +445,8 @@ return (
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light"
+theme="light"
       />
-/>
     </div>
   );
 }
