@@ -1,0 +1,78 @@
+@import 'react-toastify/dist/ReactToastify.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+.Toastify__toast-container {
+  width: 320px;
+  z-index: 9999;
+}
+
+.Toastify__toast {
+  border-radius: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  min-height: 56px;
+  padding: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.Toastify__toast--success {
+  background: linear-gradient(135deg, #51CF66, #40C057);
+  color: white;
+}
+
+.Toastify__toast--error {
+  background: linear-gradient(135deg, #FF6B6B, #FF5252);
+  color: white;
+}
+
+.Toastify__toast--info {
+  background: linear-gradient(135deg, #4ECDC4, #26C0B8);
+  color: white;
+}
+
+.Toastify__progress-bar {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  background-size: 200px 100%;
+  animation: shimmer 2s infinite;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+@layer utilities {
+  .bg-gradient-coral {
+    background: linear-gradient(135deg, #FF6B6B, #FF8E8E);
+  }
+  
+  .bg-gradient-teal {
+    background: linear-gradient(135deg, #4ECDC4, #26C0B8);
+  }
+  
+  .text-gradient-coral {
+    background: linear-gradient(135deg, #FF6B6B, #FF8E8E);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}

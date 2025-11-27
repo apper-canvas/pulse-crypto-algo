@@ -1,0 +1,68 @@
+[
+  {
+    "Id": 1,
+    "username": "alexchen",
+    "displayName": "Alex Chen",
+    "bio": "Photography enthusiast 📸 | Coffee lover ☕ | Always exploring new places ✈️",
+    "profilePicture": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+    "followerCount": 892,
+    "followingCount": 234,
+    "postCount": 127,
+    "createdAt": "2023-03-15T10:30:00Z"
+  },
+  {
+    "Id": 2,
+    "username": "sarahwilson",
+    "displayName": "Sarah Wilson",
+    "bio": "Digital artist & designer 🎨 | Nature lover 🌿 | Making the world more colorful",
+    "profilePicture": "https://images.unsplash.com/photo-1494790108755-2616b612b494?w=150&h=150&fit=crop&crop=face",
+    "followerCount": 1543,
+    "followingCount": 189,
+    "postCount": 203,
+    "createdAt": "2023-01-22T14:20:00Z"
+  },
+  {
+    "Id": 3,
+    "username": "mikejohnson",
+    "displayName": "Mike Johnson",
+    "bio": "Fitness coach 💪 | Healthy lifestyle advocate | Your daily motivation boost",
+    "profilePicture": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    "followerCount": 2156,
+    "followingCount": 145,
+    "postCount": 89,
+    "createdAt": "2023-02-08T09:15:00Z"
+  },
+  {
+    "Id": 4,
+    "username": "emilydavis",
+    "displayName": "Emily Davis",
+    "bio": "Food blogger 🍽️ | Recipe creator | Sharing delicious moments one dish at a time",
+    "profilePicture": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+    "followerCount": 3421,
+    "followingCount": 567,
+    "postCount": 345,
+    "createdAt": "2023-04-12T16:45:00Z"
+  },
+  {
+    "Id": 5,
+    "username": "davidkim",
+    "displayName": "David Kim",
+    "bio": "Tech enthusiast 💻 | Startup founder | Building the future one code at a time",
+    "profilePicture": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+    "followerCount": 987,
+    "followingCount": 298,
+    "postCount": 156,
+    "createdAt": "2023-05-03T11:30:00Z"
+  },
+  {
+    "Id": 6,
+    "username": "lisagarcia",
+    "displayName": "Lisa Garcia",
+    "bio": "Travel blogger ✈️ | Adventure seeker | Collecting memories around the world",
+    "profilePicture": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face",
+    "followerCount": 4567,
+    "followingCount": 723,
+    "postCount": 278,
+    "createdAt": "2023-06-18T13:20:00Z"
+  }
+]

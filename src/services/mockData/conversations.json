@@ -1,0 +1,37 @@
+[
+  {
+    "Id": 1,
+    "participants": [1, 2],
+    "lastMessage": "Thanks for sharing your latest artwork! It's incredible 🎨",
+    "lastMessageAt": "2024-01-15T16:20:00Z",
+    "unreadCount": 0
+  },
+  {
+    "Id": 2,
+    "participants": [1, 3],
+    "lastMessage": "Great workout tips! I'll try that routine tomorrow 💪",
+    "lastMessageAt": "2024-01-15T10:30:00Z",
+    "unreadCount": 2
+  },
+  {
+    "Id": 3,
+    "participants": [1, 4],
+    "lastMessage": "That pasta recipe looks amazing! Mind sharing the details?",
+    "lastMessageAt": "2024-01-14T20:45:00Z",
+    "unreadCount": 1
+  },
+  {
+    "Id": 4,
+    "participants": [1, 5],
+    "lastMessage": "Congratulations on launching your MVP! 🚀",
+    "lastMessageAt": "2024-01-14T13:15:00Z",
+    "unreadCount": 0
+  },
+  {
+    "Id": 5,
+    "participants": [1, 6],
+    "lastMessage": "Those mountain photos are breathtaking! Where was this taken?",
+    "lastMessageAt": "2024-01-13T12:00:00Z",
+    "unreadCount": 3
+  }
+]

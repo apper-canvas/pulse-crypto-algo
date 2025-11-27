@@ -1,0 +1,92 @@
+[
+  {
+    "Id": 1,
+    "userId": 1,
+    "type": "like",
+    "actorId": 2,
+    "postId": 4,
+    "isRead": false,
+    "createdAt": "2024-01-15T16:30:00Z"
+  },
+  {
+    "Id": 2,
+    "userId": 1,
+    "type": "comment",
+    "actorId": 3,
+    "postId": 4,
+    "isRead": false,
+    "createdAt": "2024-01-15T14:45:00Z"
+  },
+  {
+    "Id": 3,
+    "userId": 1,
+    "type": "follow",
+    "actorId": 6,
+    "postId": null,
+    "isRead": false,
+    "createdAt": "2024-01-15T12:20:00Z"
+  },
+  {
+    "Id": 4,
+    "userId": 1,
+    "type": "like",
+    "actorId": 4,
+    "postId": 4,
+    "isRead": true,
+    "createdAt": "2024-01-15T10:15:00Z"
+  },
+  {
+    "Id": 5,
+    "userId": 1,
+    "type": "message",
+    "actorId": 5,
+    "postId": null,
+    "isRead": true,
+    "createdAt": "2024-01-14T18:30:00Z"
+  },
+  {
+    "Id": 6,
+    "userId": 1,
+    "type": "like",
+    "actorId": 6,
+    "postId": 4,
+    "isRead": true,
+    "createdAt": "2024-01-14T15:45:00Z"
+  },
+  {
+    "Id": 7,
+    "userId": 1,
+    "type": "comment",
+    "actorId": 2,
+    "postId": 4,
+    "isRead": true,
+    "createdAt": "2024-01-14T13:20:00Z"
+  },
+  {
+    "Id": 8,
+    "userId": 1,
+    "type": "follow",
+    "actorId": 4,
+    "postId": null,
+    "isRead": true,
+    "createdAt": "2024-01-13T16:10:00Z"
+  },
+  {
+    "Id": 9,
+    "userId": 1,
+    "type": "like",
+    "actorId": 5,
+    "postId": 4,
+    "isRead": true,
+    "createdAt": "2024-01-13T11:25:00Z"
+  },
+  {
+    "Id": 10,
+    "userId": 1,
+    "type": "comment",
+    "actorId": 6,
+    "postId": 4,
+    "isRead": true,
+    "createdAt": "2024-01-12T19:40:00Z"
+  }
+]

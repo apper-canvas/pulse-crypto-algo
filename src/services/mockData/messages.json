@@ -1,0 +1,82 @@
+[
+  {
+    "Id": 1,
+    "conversationId": 1,
+    "senderId": 1,
+    "content": "Hey Sarah! I saw your latest digital art piece and I'm blown away. The lighting effects are incredible!",
+    "isRead": true,
+    "createdAt": "2024-01-15T15:30:00Z"
+  },
+  {
+    "Id": 2,
+    "conversationId": 1,
+    "senderId": 2,
+    "content": "Thank you so much Alex! That means a lot coming from you. I spent about 6 hours just on the lighting alone 😅",
+    "isRead": true,
+    "createdAt": "2024-01-15T15:45:00Z"
+  },
+  {
+    "Id": 3,
+    "conversationId": 1,
+    "senderId": 1,
+    "content": "It shows! The dedication really pays off. What software do you use for your digital art?",
+    "isRead": true,
+    "createdAt": "2024-01-15T16:00:00Z"
+  },
+  {
+    "Id": 4,
+    "conversationId": 1,
+    "senderId": 2,
+    "content": "Thanks for sharing your latest artwork! It's incredible 🎨",
+    "isRead": true,
+    "createdAt": "2024-01-15T16:20:00Z"
+  },
+  {
+    "Id": 5,
+    "conversationId": 2,
+    "senderId": 1,
+    "content": "Mike, that morning workout post was exactly the motivation I needed today!",
+    "isRead": true,
+    "createdAt": "2024-01-15T09:15:00Z"
+  },
+  {
+    "Id": 6,
+    "conversationId": 2,
+    "senderId": 3,
+    "content": "Glad I could help! Consistency is really the key. What's your current routine like?",
+    "isRead": true,
+    "createdAt": "2024-01-15T09:30:00Z"
+  },
+  {
+    "Id": 7,
+    "conversationId": 2,
+    "senderId": 1,
+    "content": "I've been doing 30 minutes of cardio in the mornings, but I want to add some strength training.",
+    "isRead": false,
+    "createdAt": "2024-01-15T09:45:00Z"
+  },
+  {
+    "Id": 8,
+    "conversationId": 2,
+    "senderId": 3,
+    "content": "Great workout tips! I'll try that routine tomorrow 💪",
+    "isRead": false,
+    "createdAt": "2024-01-15T10:30:00Z"
+  },
+  {
+    "Id": 9,
+    "conversationId": 3,
+    "senderId": 1,
+    "content": "Emily, that homemade pasta looked absolutely delicious! I'm definitely trying this weekend.",
+    "isRead": true,
+    "createdAt": "2024-01-14T20:15:00Z"
+  },
+  {
+    "Id": 10,
+    "conversationId": 3,
+    "senderId": 4,
+    "content": "That pasta recipe looks amazing! Mind sharing the details?",
+    "isRead": false,
+    "createdAt": "2024-01-14T20:45:00Z"
+  }
+]

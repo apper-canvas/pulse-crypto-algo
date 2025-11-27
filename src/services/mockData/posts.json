@@ -1,0 +1,122 @@
+[
+  {
+    "Id": 1,
+    "authorId": 2,
+    "content": "Just finished my latest digital art piece! Spent hours getting the lighting just right. There's something magical about creating worlds that exist only in pixels and imagination. 🎨✨",
+    "mediaUrl": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&h=400&fit=crop",
+    "mediaType": "image",
+    "likeCount": 47,
+    "commentCount": 12,
+    "privacy": "public",
+    "createdAt": "2024-01-15T14:30:00Z",
+    "editedAt": null
+  },
+  {
+    "Id": 2,
+    "authorId": 3,
+    "content": "Morning workout complete! 💪 Remember, consistency beats perfection every time. Small steps daily lead to big transformations. What's your favorite way to start the day?",
+    "mediaUrl": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop",
+    "mediaType": "image",
+    "likeCount": 89,
+    "commentCount": 24,
+    "privacy": "public",
+    "createdAt": "2024-01-15T08:45:00Z",
+    "editedAt": null
+  },
+  {
+    "Id": 3,
+    "authorId": 4,
+    "content": "Tried making homemade pasta for the first time today! The process was so therapeutic - kneading the dough, rolling it out, watching it transform. The taste? Absolutely worth the effort! 🍝",
+    "mediaUrl": "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=600&h=400&fit=crop",
+    "mediaType": "image",
+    "likeCount": 156,
+    "commentCount": 31,
+    "privacy": "public",
+    "createdAt": "2024-01-14T19:20:00Z",
+    "editedAt": null
+  },
+  {
+    "Id": 4,
+    "authorId": 1,
+    "content": "Golden hour at the beach never gets old. Sometimes the best moments happen when you're not even trying to capture them. This sunset reminded me why I fell in love with photography. 📸",
+    "mediaUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop",
+    "mediaType": "image",
+    "likeCount": 203,
+    "commentCount": 18,
+    "privacy": "public",
+    "createdAt": "2024-01-14T16:15:00Z",
+    "editedAt": null
+  },
+  {
+    "Id": 5,
+    "authorId": 5,
+    "content": "Just shipped our MVP! 🚀 After months of late nights and countless iterations, we finally have something users can get their hands on. The journey from idea to reality never stops amazing me.",
+    "mediaUrl": null,
+    "mediaType": null,
+    "likeCount": 73,
+    "commentCount": 19,
+    "privacy": "public",
+    "createdAt": "2024-01-14T12:30:00Z",
+    "editedAt": null
+  },
+  {
+    "Id": 6,
+    "authorId": 6,
+    "content": "Hiking through the misty mountains of Oregon 🏔️ There's something humbling about being surrounded by nature's grandeur. Every step reminds you how small you are in this beautiful world.",
+    "mediaUrl": "https://images.unsplash.com/photo-1464822759844-d150baec53db?w=600&h=400&fit=crop",
+    "mediaType": "image",
+    "likeCount": 234,
+    "commentCount": 28,
+    "privacy": "public",
+    "createdAt": "2024-01-13T10:45:00Z",
+    "editedAt": null
+  },
+  {
+    "Id": 7,
+    "authorId": 2,
+    "content": "Work in progress! Sometimes I share the messy middle because the final piece only tells part of the story. The real magic happens in the iterations, the happy accidents, the moments of doubt. 🎭",
+    "mediaUrl": "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=600&h=400&fit=crop",
+    "mediaType": "image",
+    "likeCount": 91,
+    "commentCount": 15,
+    "privacy": "public",
+    "createdAt": "2024-01-13T09:20:00Z",
+    "editedAt": null
+  },
+  {
+    "Id": 8,
+    "authorId": 4,
+    "content": "Sunday brunch vibes! Made these fluffy pancakes with fresh berries from the farmer's market. Cooking with seasonal ingredients always makes everything taste better. What's your go-to weekend breakfast? 🥞",
+    "mediaUrl": "https://images.unsplash.com/photo-1506084868230-bb9d95c24759?w=600&h=400&fit=crop",
+    "mediaType": "image",
+    "likeCount": 178,
+    "commentCount": 33,
+    "privacy": "public",
+    "createdAt": "2024-01-12T11:30:00Z",
+    "editedAt": null
+  },
+  {
+    "Id": 9,
+    "authorId": 1,
+    "content": "Street photography session in the city. I love capturing candid moments - the businessman rushing to catch his train, the couple sharing a laugh, the kid discovering a puddle. Life happening all around us. 📷",
+    "mediaUrl": "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
+    "mediaType": "image",
+    "likeCount": 142,
+    "commentCount": 21,
+    "privacy": "public",
+    "createdAt": "2024-01-12T08:15:00Z",
+    "editedAt": null
+  },
+  {
+    "Id": 10,
+    "authorId": 3,
+    "content": "Rest day doesn't mean lazy day! Went for a peaceful walk instead of my usual intense workout. Sometimes the best thing you can do for your body is to listen to what it needs. Balance is everything. 🧘‍♂️",
+    "mediaUrl": "https://images.unsplash.com/photo-1502904550040-7534597429ae?w=600&h=400&fit=crop",
+    "mediaType": "image",
+    "likeCount": 95,
+    "commentCount": 16,
+    "privacy": "public",
+    "createdAt": "2024-01-11T17:45:00Z",
+    "editedAt": null
+  }
+]
