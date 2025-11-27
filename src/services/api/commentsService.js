@@ -7,7 +7,7 @@ class CommentsService {
     this.nextId = Math.max(...this.comments.map(c => c.Id), 0) + 1;
   }
 
-  async delay() {
+async delay() {
     return new Promise(resolve => setTimeout(resolve, this.delay));
   }
 
