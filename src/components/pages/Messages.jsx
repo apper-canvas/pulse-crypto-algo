@@ -11,13 +11,14 @@ import { messagesService } from "@/services/api/messagesService";
 import { formatDistanceToNow } from "date-fns";
 
 const Messages = () => {
-  const [conversations, setConversations] = useState([]);
+const [conversations, setConversations] = useState([]);
   const [selectedConversation, setSelectedConversation] = useState(null);
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [currentUser, setCurrentUser] = useState({ Id: 1, displayName: "Current User" });
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     loadConversations();
@@ -105,7 +106,7 @@ const Messages = () => {
             </div>
           </div>
 
-          {/* Search */}
+{/* Search */}
           <div className="p-4 border-b border-gray-200">
             <div className="relative">
               <ApperIcon 
@@ -116,65 +117,74 @@ const Messages = () => {
               <input
                 type="text"
                 placeholder="Search conversations..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-10 pr-4 py-3 bg-gray-50 border-0 rounded-lg font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary/20"
               />
             </div>
           </div>
 
           {/* Conversations */}
-          <div className="flex-1 overflow-y-auto">
-            {conversations.length === 0 ? (
-              <div className="p-6">
-                <Empty
-                  icon="MessageCircle"
-                  title="No conversations"
-                  description="Start a new conversation to connect with friends."
-                  actionText="New Message"
-                />
-              </div>
-            ) : (
-              <div className="space-y-1 p-2">
-                {conversations.map((conversation) => (
-                  <motion.button
-                    key={conversation.Id}
-                    onClick={() => setSelectedConversation(conversation)}
-                    className={`w-full p-4 rounded-lg text-left transition-colors ${
-                      selectedConversation?.Id === conversation.Id
-                        ? "bg-primary/10 border-primary/20"
-                        : "hover:bg-gray-50"
-                    }`}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <div className="flex items-center space-x-3">
-                      <Avatar
-                        src={conversation.otherUser?.profilePicture}
-                        alt={conversation.otherUser?.displayName}
-                        size="lg"
-                        online={conversation.otherUser?.online}
-                      />
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between">
-                          <h4 className="font-display font-semibold text-gray-900 truncate">
-                            {conversation.otherUser?.displayName || "Unknown User"}
-                          </h4>
-                          <span className="text-xs text-gray-500 font-body ml-2">
-                            {formatDistanceToNow(new Date(conversation.lastMessageAt), { addSuffix: true })}
-                          </span>
-                        </div>
-                        <p className="text-sm text-gray-600 font-body truncate mt-1">
-                          {conversation.lastMessage || "No messages yet"}
-                        </p>
-                        {conversation.unreadCount > 0 && (
-                          <div className="inline-flex items-center justify-center w-5 h-5 bg-primary text-white text-xs rounded-full mt-1">
-                            {conversation.unreadCount}
+<div className="flex-1 overflow-y-auto">
+            {(() => {
+              const filteredConversations = conversations.filter(conversation =>
+                conversation.otherUser?.displayName?.toLowerCase().includes(searchQuery.toLowerCase())
+              );
+              
+              return filteredConversations.length === 0 ? (
+                <div className="p-6">
+                  <Empty
+                    icon="MessageCircle"
+                    title={searchQuery ? "No conversations found" : "No conversations"}
+                    description={searchQuery ? "Try searching for a different name." : "Start a new conversation to connect with friends."}
+                    actionText="New Message"
+                  />
+                </div>
+              ) : (
+                <div className="space-y-1 p-2">
+{filteredConversations.map((conversation) => (
+                    <motion.button
+                      key={conversation.Id}
+                      onClick={() => setSelectedConversation(conversation)}
+                      className={`w-full p-4 rounded-lg text-left transition-colors ${
+                        selectedConversation?.Id === conversation.Id
+                          ? "bg-primary/10 border-primary/20"
+                          : "hover:bg-gray-50"
+                      }`}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <div className="flex items-center space-x-3">
+                        <Avatar
+                          src={conversation.otherUser?.profilePicture}
+                          alt={conversation.otherUser?.displayName}
+                          size="lg"
+                          online={conversation.otherUser?.online}
+                        />
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center justify-between">
+                            <h4 className="font-display font-semibold text-gray-900 truncate">
+                              {conversation.otherUser?.displayName || "Unknown User"}
+                            </h4>
+                            <span className="text-xs text-gray-500 font-body ml-2">
+                              {formatDistanceToNow(new Date(conversation.lastMessageAt), { addSuffix: true })}
+                            </span>
                           </div>
-                        )}
+                          <p className="text-sm text-gray-600 font-body truncate mt-1">
+                            {conversation.lastMessage || "No messages yet"}
+                          </p>
+                          {conversation.unreadCount > 0 && (
+                            <div className="inline-flex items-center justify-center w-5 h-5 bg-primary text-white text-xs rounded-full mt-1">
+                              {conversation.unreadCount}
+                            </div>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  </motion.button>
-                ))}
-              </div>
+                    </motion.button>
+                  ))}
+                </div>
+              );
+            })()}
             )}
           </div>
         </div>
