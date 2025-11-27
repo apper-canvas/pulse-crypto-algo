@@ -63,6 +63,24 @@ class UsersService {
     this.users.splice(index, 1);
     return true;
   }
+async search(query = '') {
+    await new Promise(resolve => setTimeout(resolve, this.delay));
+    
+    // If no query provided, return all users
+    if (!query || query.trim() === '') {
+      return this.users.map(user => ({ ...user }));
+    }
+    
+    const searchTerm = query.toLowerCase().trim();
+    
+    // Filter users by username or display name (case-insensitive partial match)
+    const filteredUsers = this.users.filter(user => 
+      user.username.toLowerCase().includes(searchTerm) ||
+      user.displayName.toLowerCase().includes(searchTerm)
+    );
+    
+    return filteredUsers.map(user => ({ ...user }));
+  }
 
   async follow(followerId, followingId) {
     await new Promise(resolve => setTimeout(resolve, this.delay));
