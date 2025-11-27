@@ -24,11 +24,10 @@ const [post, setPost] = useState(null);
     }
   }, [postId]);
 
-  const loadPost = async () => {
-try {
+const loadPost = async () => {
+    try {
       setLoading(true);
       setError(null);
-      
       const [postData, currentUserData] = await Promise.all([
         postsService.getById(parseInt(postId)),
         usersService.getCurrentUser()
@@ -59,10 +58,9 @@ try {
     }
   };
 
-  const handleLikePost = async (postId, isLiked) => {
-console.log(`Post ${postId} ${isLiked ? "liked" : "unliked"}`);
+const handleLikePost = async (postId, isLiked) => {
+    console.log(`Post ${postId} ${isLiked ? "liked" : "unliked"}`);
   };
-
   const handleBack = () => {
     navigate(-1);
   };
