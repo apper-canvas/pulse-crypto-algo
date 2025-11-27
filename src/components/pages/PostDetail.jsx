@@ -10,9 +10,9 @@ import CommentList from "@/components/molecules/CommentList";
 import { postsService } from "@/services/api/postsService";
 import { usersService } from "@/services/api/usersService";
 const PostDetail = () => {
-  const { postId } = useParams();
+const { postId } = useParams();
   const navigate = useNavigate();
-const [post, setPost] = useState(null);
+  const [post, setPost] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -22,9 +22,9 @@ const [post, setPost] = useState(null);
     if (postId) {
       loadPost();
     }
-  }, [postId]);
+}, [postId]);
 
-const loadPost = async () => {
+  const loadPost = async () => {
     try {
       setLoading(true);
       setError(null);
@@ -56,9 +56,9 @@ const loadPost = async () => {
     } catch (err) {
       console.error('Failed to update comment count:', err);
     }
-  };
+};
 
-const handleLikePost = async (postId, isLiked) => {
+  const handleLikePost = async (postId, isLiked) => {
     console.log(`Post ${postId} ${isLiked ? "liked" : "unliked"}`);
   };
   const handleBack = () => {
@@ -88,9 +88,8 @@ const handleLikePost = async (postId, isLiked) => {
           onLike={handleLikePost}
         />
       )}
-
-      {/* Comments Section */}
-<div className="mt-6 bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+{/* Comments Section */}
+      <div className="mt-6 bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
         <div className="px-6 py-4 border-b border-gray-100">
           <h3 className="text-lg font-display font-semibold text-gray-900">
             Comments ({post.commentCount || 0})
