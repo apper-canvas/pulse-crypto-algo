@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import Avatar from "@/components/atoms/Avatar";
-import Button from "@/components/atoms/Button";
-import ApperIcon from "@/components/ApperIcon";
 import { toast } from "react-toastify";
+import ApperIcon from "@/components/ApperIcon";
+import Button from "@/components/atoms/Button";
+import Avatar from "@/components/atoms/Avatar";
+import Profile from "@/components/pages/Profile";
 
 const ProfileHeader = ({ user, currentUser, isOwnProfile, onFollow, onEdit }) => {
   const [isFollowing, setIsFollowing] = useState(false);
@@ -52,7 +53,7 @@ const ProfileHeader = ({ user, currentUser, isOwnProfile, onFollow, onEdit }) =>
             showRing={true}
           />
           
-          <div className="mt-12">
+<div className="mt-12">
             {isOwnProfile ? (
               <Button variant="secondary" onClick={onEdit}>
                 <ApperIcon name="Edit" size={16} className="mr-2" />
